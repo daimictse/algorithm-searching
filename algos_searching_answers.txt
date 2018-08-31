@@ -1,0 +1,45 @@
+Short Answers
+
+1. A real life example of linear search is when you shop for a pair of shoes you like in a catalog. You go through each pair and found your favorite.
+
+2. A real life example of binary search is when you shop for a pair of shoes with budget. You sort the shoes by prices, then you estimate the page number which has shoes of your budget, and then skip a page or two to locate the page with the closest budget of yours.
+
+3. With linear search, since G is at the 7th position, it takes 7 iterations to find G.
+
+4. With binary search, it takes 3 iterations to find G.
+
+5. If a million items are unsorted in a collection, the chances of searching an item is equally the same with linear search and binary search. So, I would use linear search so that it just go through the collection item by item without the need of performing the calculation for mid, high and low in binary search.
+
+6. If a million items are sorted in a collection, I would definitely use binary search because the time complexity is faster compared to linear search, unless the item is before the position of log(n).
+
+Programming
+
+1. Since words are alphabetically arranged in the dictionary, binary search is good to use. Since English words can be started with 2 letters, the data structure of the dictionary would be an array of the first letter, in which each has an array of the second letter, in which has an array of the words starting with the first and second letters.
+
+function binarySearch(collection, value) {
+  var low = 0;
+  var high = collection.length-1;
+  while (low <= high) {
+    var mid = (low + high) / 2;
+    if (collection[mid] > value) {
+      high = mid - 1;
+    } else if (collection[mid] < value) {
+      low = mid + 1;
+    } else {
+      return mid;
+    }
+  }
+}
+FUNCTION wordSearch( dictionary, word ) {
+  var firstLetter = binarySearch(dictionary, word[0]);
+  var secondLetter = binarySearch(dictionary[firstLetter], word[1]);
+  return binarySearch(dictionary[firstLetter][secondLetter], word);
+}
+
+2. Since fishes are randomly swimming in the fish tank, linear search is good to use.
+
+FOR each fish in the tank
+  IF fish is white-spotted THEN
+    net the fish
+  END IF
+END FOR
