@@ -43,3 +43,14 @@ FOR each fish in the tank
     net the fish
   END IF
 END FOR
+
+// tank is a collection of fishes with the white-spotted fish represented by 1
+// tank = [0, 3, 2, 2, 3, 0, 1, 5, 6, 5]
+function whiteSpottedFishSearch (tank) {
+  var white-spotted = 1;
+  for (var fishIndex=0; fishIndex<tank.length; fishIndex++) {
+    if (tank[fishIndex] === white-spotted)
+      return tank[fishIndex];
+  }
+  return null;
+}
